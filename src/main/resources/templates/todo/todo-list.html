@@ -8,12 +8,12 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-md-12 mt-2 bg-secondary p-2 ">
+            <div class="col-md-12 mt-2 bg-secondary p-2">
                 <h6 class="text-light">Todo List</h6>
                 <p class="text-light">A Spring boot and HTMX example with searching functionality.</p>
             </div>
         </div>
-        <form class="row mt-4" hx-get="/filters" hx-target="#todoTable" hx-swap="outerHTML">
+        <form class="row mt-4" hx-get="/filters" hx-target="#data" hx-swap="outerHTML">
             <div class="col-md-4">
                 <input type="text" name="title" class="form-control" placeholder="Title">
             </div>
@@ -24,7 +24,7 @@
                 <button class="btn btn-primary">Search</button>
             </div>
         </form>
-        <table class="mt-2 table table-sm table-striped" id="todoTable">
+        <table class="mt-2 table table-sm table-striped">
             <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -32,7 +32,7 @@
                     <th scope="col">Status</th>
                 </tr>
             </thead>
-            <tbody class="table-group-divider">
+            <tbody class="table-group-divider" id="data">
                 <tr th:each="todo : ${todos}">
                     <th scope="row">[[${todo.id}]]</th>
                     <td>[[${todo.title}]]</td>

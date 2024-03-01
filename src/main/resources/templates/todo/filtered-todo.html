@@ -1,16 +1,7 @@
-<table class="mt-2 table table-sm table-striped" id="todoTable">
-    <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Title</th>
-            <th scope="col">Status</th>
-        </tr>
-    </thead>
-    <tbody class="table-group-divider">
-        <tr th:each="todo : ${todos}">
-            <th scope="row">[[${todo.id}]]</th>
-            <td>[[${todo.title}]]</td>
-            <td>[[${todo.status}]]</td>
-        </tr>
-    </tbody>
-</table>
+<tbody class="table-group-divider" id="data">
+    <tr th:each="todo : ${todos}">
+        <th scope="row">[[${todo.id}]]</th>
+        <td>[[${todo.title}]]</td>
+        <td>[[${todo.status}]]</td>
+    </tr>
+</tbody>
