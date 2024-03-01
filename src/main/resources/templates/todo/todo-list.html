@@ -14,14 +14,25 @@
             </div>
         </div>
         <form class="row mt-4" hx-get="/filters" hx-target="#data" hx-swap="outerHTML">
-            <div class="col-md-4">
+            <div class="col-md-3">
+                <label for="">Title</label>
                 <input type="text" name="title" class="form-control" placeholder="Title">
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
+                <label for="">Status</label>
                 <input type="text" name="status" class="form-control" placeholder="Status">
             </div>
-            <div class="col-md-4">
-                <button class="btn btn-primary">Search</button>
+            <div class="col-md-3">
+                <label for="">Start Date</label>
+                <input type="date" name="startDate" th:value="${startDate}" class="form-control" placeholder="Start Date">
+            </div>
+            <div class="col-md-3">
+                <label for="">End Date</label>
+                <input type="date" name="endDate" th:value="${endDate}" class="form-control" placeholder="End Date">
+            </div>
+            <div class="col-md-3 mt-2">
+                <button class="btn btn-sm btn-primary">Search</button>
+                <button hx-get="/filters" class="btn btn-sm btn-info">Reset</button>
             </div>
         </form>
         <table class="mt-2 table table-sm table-striped">
@@ -30,6 +41,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Title</th>
                     <th scope="col">Status</th>
+                    <th scope="col">Date</th>
                 </tr>
             </thead>
             <tbody class="table-group-divider" id="data">
@@ -37,6 +49,7 @@
                     <th scope="row">[[${todo.id}]]</th>
                     <td>[[${todo.title}]]</td>
                     <td>[[${todo.status}]]</td>
+                    <td>[[${todo.date}]]</td>
                 </tr>
             </tbody>
         </table>
